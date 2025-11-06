@@ -39,6 +39,15 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     padding-bottom: 126px;
+
+    &__title {
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 70px;
+        margin: 127px 0 16px 0;
+        color: $colorText;
+        text-align: left;
+    }
 }
 
 .header {
@@ -100,21 +109,21 @@ body {
 }
 .hero {
 
-    &__title {
-        font-weight: 600;
-        font-size: 64px;
-        line-height: 70px;
-        margin: 127px 0 16px 0;
-        color: $colorText;
-        text-align: left;
-    }
-
     &__subtitle {
         font-size: 24px;
         line-height: 32px;
         margin-bottom: 16px;
         color: $colorText;
         font-weight: 400;
+        text-align: left;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 70px;
+        margin: 127px 0 16px 0;
+        color: $colorText;
         text-align: left;
     }
 
@@ -298,6 +307,18 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
         color: black;
+        font-weight: bold;
+        font-size: 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    &__color-dark input[type="checkbox"]:checked + .color-swatch::after {
+        content: "✓";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
         font-weight: bold;
         font-size: 10px;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
@@ -519,6 +540,34 @@ fieldset {
 
 .product-card {
     flex: 0 0 calc(33.333% - (32px * 2 / 3));
+    position: relative;
+    transition: all 0.3s ease;
+
+     &:hover &__actions {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__actions {
+
+        position: absolute;
+        bottom: 87%;
+        left: 85%;
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        gap: 5px;
+
+    }
+
+    &__action {
+        padding: 8px 12px;
+        border: none;
+        background-color: transparent;
+        color: #C4C4C4
+    }
 
     &__image {
         width: 100%;
@@ -644,10 +693,6 @@ fieldset {
 
     &__social-icon:hover {
         filter: brightness(0);
-    }
-
-    &__subscribe {
-        margin-right: 24px;
     }
 
     &__subscribe-text {
